@@ -28,13 +28,24 @@ class CustomItemInvoice extends StatelessWidget {
     );
 
     return ListTile(
-      title: Text(
-        titleName,
-        textScaleFactor: textScaleFactorForTitle,
-        style: TextStyle(
-          color: defDeepPurple,
-          fontWeight: FontWeight.bold,
-        ),
+      title: Row(
+        children: [
+          Text(
+            titleName,
+            textScaleFactor: textScaleFactorForTitle,
+            style: TextStyle(
+              color: defDeepPurple,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(width: 10), // Add spacing between the title and quantity
+          Text(
+            '×${product.productQuantity}',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
       trailing: Text(
         (product.productPrice * product.productQuantity).toString(),
